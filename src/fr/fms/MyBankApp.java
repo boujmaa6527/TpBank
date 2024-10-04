@@ -17,7 +17,7 @@ public class MyBankApp {
 			User robert = new User(1, "dupont", "robert", "robert@yahoo.fr");
 			User julie = new User(2, "julie", "jolie", "julie@yahoo.fr");
 			User papin = new User(3, "jean", "papin", "jean@yahoo.fr");
-			User zidane = new User(3, "zidane", "zinedine", "zidane@yahoo.fr");
+			User zidane = new User(3, "zidane", "zined", "zidane@yahoo.fr");
 			
 			CurrentAccount firstAccount = new CurrentAccount(200300, new Date(), 6000, 700,robert );
 			SavingAccount secondAccount = new SavingAccount(100200, new Date(), 1500, 200,julie );
