@@ -10,6 +10,5 @@ public  interface Ibank {
 		public boolean  withdraw(long accoundId, double amount); 
 		public void transfert(long accountIdSrc, long accountIdDest, double amount);
 		
-	
 
 }

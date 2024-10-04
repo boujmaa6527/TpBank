@@ -52,12 +52,12 @@ public class MyBankApp {
 			
 //			System.out.println(bankJob.consultAccount(thirdAccount.getIdAccount()).toString());
 			
-//			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
-//			System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()));
-//			System.out.println("*************");
-//			bankJob.transfert( secondAccount.getIdAccount(),firstAccount.getIdAccount(), 300);
-//			System.out.println("*************");
-//			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
-//			System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()));
+			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
+			System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()));
+			System.out.println("*************");
+			bankJob.transfert( secondAccount.getIdAccount(),firstAccount.getIdAccount(), 300);
+			System.out.println("*************");
+			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
+			System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()));
 	}
 }
