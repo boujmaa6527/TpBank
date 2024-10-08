@@ -8,7 +8,7 @@ public  class Account {
 	private int idAccount;
 	protected double balanceAcount;
 	private Date dateCreateAcount; 
-	public ArrayList<Account> listCount; 
+	
 	
 	public Account(int idAccount, Date dateCreateAcount, double balanceAcount) {
 		this.idAccount = idAccount;

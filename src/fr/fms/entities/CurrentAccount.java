@@ -4,7 +4,7 @@ import java.util.Date;
 import fr.fms.entities.User;
 public class CurrentAccount extends Account{
 
-	private double amountAutorize = -200;
+	private double amountAutorize = 200;
 	private User user; 
 	
 	
@@ -46,7 +46,7 @@ public class CurrentAccount extends Account{
 //		setBalanceAcount(getBalanceAcount() - withdrawAmount);
 //	}
 	// fonction découvert autorisé
-	public boolean  overdraftAllowed(int amount) {
+	public boolean isOverdraftAllowed(int amount) {
 		if(getBalanceAcount() - amount  < -amount ) {
 			System.out.println("Découvert dépassé");
 			return false;

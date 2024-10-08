@@ -65,6 +65,7 @@ public  class Ibanklmpl implements Ibank {
 	//faire un retrait sur un compte
 	public boolean withdraw(long accountId, double amount) {
 		
+		int amountAutorize = 200;
 		boolean iSwithdraw = false; 
 		Account account = accounts.get(accountId);
 		// keySet recupère la key des HashMap
@@ -73,12 +74,12 @@ public  class Ibanklmpl implements Ibank {
 				
 				// on onvoie la value de la HashMap dans l'objet account
 				account = accounts.get(i);
-				//check s'il y a du flousse et si le montant du compte est > au montant du retrait
-				if(account.getBalanceAcount() > 0 && amount < account.getBalanceAcount()) {
-					account.setBalanceAcount(account.getBalanceAcount() - amount);
-					iSwithdraw = true; 
+				//check s'il y a du flousse et si le montant du compte + le découvert est > au montant du retrait
+				if(account.getBalanceAcount() + amountAutorize >= amount ) {
+						account.setBalanceAcount(account.getBalanceAcount() - amount);
+						iSwithdraw = true; 
 				}
-				// Si retrait > au montant du compte
+				// Si retrait > au montant du compte + découvert
 				if(!iSwithdraw) {
 					System.out.println("Retrait Non autorisé ");
 				}
@@ -97,29 +98,51 @@ public  class Ibanklmpl implements Ibank {
 	public void transfert(long accIdSrc, long accIdDest, double amount) {
 		Account account = accounts.get(accIdSrc);
 		Account account1 = accounts.get(accIdDest);
+		int amountAutorize = 200;
+		boolean iSwithdraw = false; 
 		for(int i : accounts.keySet()) {
 			if(i == accIdSrc) {
 				account = accounts.get(i);
 				//System.out.println(account);
 				// retrait du compte sources 
-				account.setBalanceAcount(account.getBalanceAcount() - amount); 
+				if(account.getBalanceAcount() + amountAutorize >= amount ) {
+					account.setBalanceAcount(account.getBalanceAcount() - amount);
+					iSwithdraw = true; 
+				}
+				if(!iSwithdraw) {
+					System.out.println("Virement Non autorisé ");
+				}
 			}
 			if(i == accIdDest) {
 				account1 = accounts.get(i);
-				//System.out.println(account1);
-				// rajouter au compte destinataire
-				account1.setBalanceAcount(account1.getBalanceAcount() + amount);
 				
+				//System.out.println(account1);
+				// rajouter au compte destinataire et si l'argent a été retirer du compte sources
+					//if(iSwithdraw) {
+						account1.setBalanceAcount(account1.getBalanceAcount() + amount);
+						System.out.println("Virement effectué avec succes!  ");
+					
+						
 			}
-			
-			
-			
+				
 		}
 		if(account == null || account1 == null) {
 			System.out.print("Compte Non trouvé pour le transfert! ");
 			
 		}
 	};
+	// fonction test pour autorisé le découvert avec son plafont dédié
+//	public boolean isOverdraftAllowed(double amount, int amountAutorize) {
+//		
+//		Account account = new Account();
+//		// si le compte moins le découvert est > retrait donc retrait autorisé
+//		if(account.getBalanceAcount() + amountAutorize <= amount ) {
+//			return true;
+//		}
+//		System.out.println("Découvert dépassé");
+//		return false;
+//		
+//	}
 	
 	
 	

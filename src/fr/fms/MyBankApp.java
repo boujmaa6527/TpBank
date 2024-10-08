@@ -40,9 +40,10 @@ public class MyBankApp {
 			
 //			bankJob.withdraw(11111111, 1600);
 //			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
-//			boolean testRetrait = bankJob.withdraw(firstAccount.getIdAccount(),1400);
-//			System.out.println(testRetrait);
 //			System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()).toString());
+//			boolean testRetrait = bankJob.withdraw(firstAccount.getIdAccount(),6250);
+//			System.out.println("Retrait: "+testRetrait);
+			//System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()).toString());
 //			boolean testRetrait2 = bankJob.withdraw(firstAccount.getIdAccount(),1400);
 //			System.out.println(testRetrait2);
 //			System.out.println(bankJob.consultAccount(thirdAccount.getIdAccount()).toString());
@@ -52,12 +53,12 @@ public class MyBankApp {
 			
 //			System.out.println(bankJob.consultAccount(thirdAccount.getIdAccount()).toString());
 			
-			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
 			System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()));
-			System.out.println("*************");
-			bankJob.transfert( secondAccount.getIdAccount(),firstAccount.getIdAccount(), 300);
-			System.out.println("*************");
 			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
+			System.out.println("*************");
+			bankJob.transfert(firstAccount.getIdAccount(),secondAccount.getIdAccount(),600);
+			System.out.println("*************");
 			System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()));
+			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
 	}
 }
