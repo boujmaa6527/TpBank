@@ -6,16 +6,22 @@ public  class SavingAccount extends Account {
 
 	// taux d'intéret
 	private double interestRate;
-	private User user; 
 	
 	
 	// Contructeur
-	public SavingAccount(int idAccount, Date dateCreateAcount, double balanceAcount, double interestRate, User user) {
-		super(idAccount,  dateCreateAcount, balanceAcount);
-		this.interestRate =  interestRate;
-		this.user = user; 
+	public SavingAccount() {
+		
 	}
 
+	public SavingAccount(int idAccount, Date dateCreateAcount, double balanceAcount, User user) {
+		super(idAccount, dateCreateAcount, balanceAcount, user);
+		
+	}
+
+	public SavingAccount(int idAccount, double balanceAcount) {
+		super(idAccount, balanceAcount);
+		
+	}
 	public double getInterestRate() {
 		return interestRate;
 	}
@@ -24,22 +30,14 @@ public  class SavingAccount extends Account {
 		this.interestRate = interestRate;
 	}
 	
+	@Override
 	public String toString() {
-		
-		return String.format("IdAcount: %s, Date de creation: %s, balance: %f, %f, %s", getIdAccount(),
-																						getDateCreateAcount(),
-																						getBalanceAcount(),
-																						getInterestRate(), 
-																						getUser().toString());
+		return "Saving Account "+ super.toString()+ ",\n\t\t interestRate="+interestRate + "]"; 
 	}
 
-	public User getUser() {
-		return user;
-	}
+	
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 
 	
 	

@@ -1,35 +1,38 @@
 package fr.fms.entities;
 
+import java.util.ArrayList;
+
 public class User {
 
 	private int idUser;
 	private String firstNameUser;
 	private String lastNameUser;
 	private String mailUser;
-	private String roleUser; 
+	private User user;
+	private ArrayList<Account> listAccounts;
 	
 	public User(int idUser, String firstNameUser, String lastNameUser, String mailUser) {
 		this.idUser = idUser;
 		this.firstNameUser = firstNameUser;
 		this.lastNameUser = lastNameUser;
 		this.mailUser = mailUser;
-	}
-	public User( String firstNameUser, String lastNameUser, String mailUser) {
-		this.firstNameUser = firstNameUser;
-		this.lastNameUser = lastNameUser;
-		this.mailUser = mailUser;
+		this.listAccounts = new ArrayList<Account>();
 	}
 	
-	public String getRoleUser() {
-		return roleUser;
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public void setListAccounts(ArrayList<Account> listAccounts) {
+		this.listAccounts = listAccounts;
 	}
 
-	public void setRoleUser(String roleUser) {
-		this.roleUser = roleUser;
+	public ArrayList<Account> getListAccounts() {
+		return listAccounts;
 	}
-
 	
-
 	public int getIdUser() {
 		return idUser;
 	}

@@ -1,40 +1,59 @@
 package fr.fms.entities;
 
 import java.util.ArrayList;
+import java.util.Date;
 
-public class Transaction {
+public abstract class Transaction {
 	
-		private int counterTransaction; 
-		private int idTransaction;
-		ArrayList<Transaction> listTransaction = new ArrayList<>(); 
+		private long idTransaction;
+		private Date transactionDate;
+		private double amount; 
 		
-		public Transaction(int counterTransaction, int idTransaction) {
-			
-			this.counterTransaction++; 
-			this.idTransaction = counterTransaction;
+		private long accountId;
+		
+		
+
+		public Transaction(long idTransaction, Date transactionDate, double amount, long accountId) {
+			this.idTransaction = idTransaction;
+			transactionDate = transactionDate;
+			this.amount = amount;
+			this.accountId = accountId;
 		}
 
-		public int getCounterTransaction() {
-			return counterTransaction;
-		}
-
-		public void setCounterTransaction(int counterTransaction) {
-			this.counterTransaction = counterTransaction;
-		}
-
-		public int getIdTransaction() {
+		public long getIdTransaction() {
 			return idTransaction;
 		}
 
-		public void setIdTransaction(int idTransaction) {
+		public void setIdTransaction(long idTransaction) {
 			this.idTransaction = idTransaction;
-		} 
-		
-		public String toString() {
-			
-			return "Transaction n° "+ getIdTransaction();
-			
 		}
+
+		public Date getTransactionDate() {
+			return transactionDate;
+		}
+
+		public void setTransactionDate(Date transactionDate) {
+			transactionDate = transactionDate;
+		}
+
+		public double getAmount() {
+			return amount;
+		}
+
+		public void setAmout(double amount) {
+			this.amount = amount;
+		}
+
+		public long getAccountId() {
+			return accountId;
+		}
+
+		public void setAccountId(long accountId) {
+			this.accountId = accountId;
+		}
+		@Override
+		public String toString() {
+			return "Transaction [idTransaction="+ idTransaction+ ", transactionDate="+ Account.SIMPLE_DATE_FORMAT.format(transactionDate)+", amount="+amount+", accoundId="+accountId+"]";		}
 		
 		
 }

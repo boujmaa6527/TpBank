@@ -4,18 +4,12 @@ import java.util.Date;
 import fr.fms.entities.User;
 public class CurrentAccount extends Account{
 
-	private double amountAutorize = 200;
-	private User user; 
+	private double amountAutorize;
 	
-	
-	
-	public CurrentAccount(int idAccount, Date dateCreateAcount, double balanceAcount, double amountAutorize, User user) {
-		super(idAccount, dateCreateAcount, balanceAcount);
-		this.amountAutorize = amountAutorize; 
-		this.user = user; 
-		
+	public CurrentAccount(int idAccount, Date dateCreateAcount, double balanceAcount, User user) {
+		super(idAccount, dateCreateAcount, balanceAcount, user);
+		this.amountAutorize = amountAutorize;
 	}
-	
 	
 	public double getAmountAutorize() {
 		return amountAutorize;
@@ -23,20 +17,12 @@ public class CurrentAccount extends Account{
 	public void setAmountAutorize(double amountAutorize) {
 		this.amountAutorize = amountAutorize;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
+	
+
+	@Override
 	public String toString() {
-		
-		return String.format("IdCount= %s, Date de creation= %s, balance= %,f, %f, %s",getIdAccount(),
-																				getDateCreateAcount(),
-																				getBalanceAcount(),
-																				getAmountAutorize(),
-																				getUser().toString());
-																				
+		return "Current Account "+ super.toString()+ ",\n\t\t amountAutorize="+amountAutorize + "]"; 
 	}
 //	@Override
 //	public void withdraw(double withdrawAmount) {
@@ -53,6 +39,14 @@ public class CurrentAccount extends Account{
 		}
 		return true;
 	}
-	
+//	public String toString() {
+//	
+////	return String.format("IdCount= %s, Date de creation= %s, balance= %,f, %f",getIdAccount(),
+////																			getDateCreateAcount(),
+////																			getBalanceAcount(),
+////																			getAmountAutorize()
+////																			);
+////																			
+////	}
 
 }

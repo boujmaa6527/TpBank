@@ -3,6 +3,7 @@ package fr.fms;
 import java.util.Date;
 import fr.fms.business.Ibanklmpl;
 import fr.fms.business.Ibank;
+import fr.fms.entities.Account;
 import fr.fms.entities.CurrentAccount;
 import fr.fms.entities.SavingAccount;
 import fr.fms.entities.User;
@@ -19,17 +20,21 @@ public class MyBankApp {
 			User papin = new User(3, "jean", "papin", "jean@yahoo.fr");
 			User zidane = new User(3, "zidane", "zined", "zidane@yahoo.fr");
 			
-			CurrentAccount firstAccount = new CurrentAccount(200300, new Date(), 6000, 700,robert );
-			SavingAccount secondAccount = new SavingAccount(100200, new Date(), 1500, 200,julie );
-			CurrentAccount thirdAccount = new CurrentAccount(150200, new Date(), 1800, 700,papin );
-			CurrentAccount fourAccount = new CurrentAccount(200150, new Date(), 1700, 700,zidane );
-			//System.out.println(firstAccount);
-			//System.out.println(SecondAccount);
+			CurrentAccount firstAccount = new CurrentAccount(200300, new Date(), 6000,robert );
+			SavingAccount secondAccount = new SavingAccount(100200, new Date(), 1500,julie );
+			CurrentAccount thirdAccount = new CurrentAccount(150200, new Date(), 1800,papin );
+			CurrentAccount fourAccount = new CurrentAccount(200150, new Date(), 1700,zidane );
+//			System.out.println(firstAccount);
+//			System.out.println(secondAccount);
 			bankJob.addAccount(firstAccount);
 			bankJob.addAccount(secondAccount);
-			bankJob.addAccount(thirdAccount);
-			bankJob.addAccount(fourAccount);
 			
+			for(Account acc: bankJob.listAccounts()) {
+				
+				System.out.println(acc);
+			}
+			
+//			
 //			System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()));
 //			System.out.println("*************");
 //			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
@@ -53,12 +58,12 @@ public class MyBankApp {
 			
 //			System.out.println(bankJob.consultAccount(thirdAccount.getIdAccount()).toString());
 			
-			System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()));
-			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
-			System.out.println("*************");
-			bankJob.transfert(firstAccount.getIdAccount(),secondAccount.getIdAccount(),600);
-			System.out.println("*************");
-			System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()));
-			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
+//			System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()));
+//			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
+//			System.out.println("*************");
+//			bankJob.transfert(firstAccount.getIdAccount(),secondAccount.getIdAccount(),600);
+//			System.out.println("*************");
+//			System.out.println(bankJob.consultAccount(firstAccount.getIdAccount()));
+//			System.out.println(bankJob.consultAccount(secondAccount.getIdAccount()));
 	}
 }
